@@ -1,0 +1,46 @@
+# Core dependencies
+python-dotenv==1.0.1
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.12
+jinja2==3.1.4
+aiofiles==24.1.0
+
+# OpenAI and LangChain
+openai==1.56.1
+langchain==0.3.9
+langchain-openai==0.2.9
+langchain-community==0.3.7
+langgraph==0.2.53
+
+# Vector Database and Embeddings
+faiss-cpu==1.9.0
+tiktoken==0.8.0
+
+# Document Processing
+pypdf==5.1.0
+python-docx==1.1.2
+unstructured==0.16.8
+markdown==3.7
+
+# Data Validation
+pydantic==2.10.6
+pydantic-settings==2.10.1
+pydantic-core==2.27.2
+
+# Audio Processing
+pydub==0.25.1
+
+# Weather API
+requests==2.32.3
+
+# Logging and Monitoring
+python-json-logger==2.0.7
+
+# CORS and Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# Testing
+pytest==8.3.3
+pytest-asyncio==0.24.0

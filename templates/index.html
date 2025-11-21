@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice-Enabled AI Agent System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container">
+                <h1><i class="fas fa-robot"></i> Voice-Enabled AI Agent System</h1>
+                <div class="header-controls">
+                    <button id="btnSettings" class="btn-icon" title="Settings">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button id="btnMetrics" class="btn-icon" title="Metrics">
+                        <i class="fas fa-chart-line"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="agent-selector">
+                    <h3>Select Agent</h3>
+                    <div class="agent-list">
+                        <div class="agent-item active" data-agent="orchestrator">
+                            <i class="fas fa-brain"></i>
+                            <span>Auto Select</span>
+                        </div>
+                        <div class="agent-item" data-agent="general">
+                            <i class="fas fa-comments"></i>
+                            <span>General</span>
+                        </div>
+                        <div class="agent-item" data-agent="real_estate">
+                            <i class="fas fa-home"></i>
+                            <span>Real Estate</span>
+                        </div>
+                        <div class="agent-item" data-agent="medical">
+                            <i class="fas fa-heartbeat"></i>
+                            <span>Medical</span>
+                        </div>
+                        <div class="agent-item" data-agent="ai_ml">
+                            <i class="fas fa-microchip"></i>
+                            <span>AI/ML</span>
+                        </div>
+                        <div class="agent-item" data-agent="sales">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Sales</span>
+                        </div>
+                        <div class="agent-item" data-agent="education">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Education</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="document-upload">
+                    <h3>Upload Documents</h3>
+                    <select id="uploadAgent" class="form-select">
+                        <option value="">Select Agent</option>
+                        <option value="general">General</option>
+                        <option value="real_estate">Real Estate</option>
+                        <option value="medical">Medical</option>
+                        <option value="ai_ml">AI/ML</option>
+                        <option value="sales">Sales</option>
+                        <option value="education">Education</option>
+                    </select>
+                    <input type="file" id="fileUpload" accept=".pdf,.txt,.docx,.md,.csv" style="display: none;">
+                    <button id="btnUpload" class="btn btn-secondary">
+                        <i class="fas fa-upload"></i> Choose File
+                    </button>
+                    <div id="uploadStatus" class="upload-status"></div>
+                </div>
+
+                <div class="session-info">
+                    <h3>Session</h3>
+                    <p class="session-id">ID: <span id="sessionId">-</span></p>
+                    <button id="btnNewSession" class="btn btn-sm">New Session</button>
+                </div>
+            </aside>
+
+            <!-- Chat Area -->
+            <main class="chat-container">
+                <div id="chatMessages" class="chat-messages">
+                    <div class="welcome-message">
+                        <i class="fas fa-robot fa-3x"></i>
+                        <h2>Welcome to Voice-Enabled AI Agent</h2>
+                        <p>Ask me anything! Use voice or text input.</p>
+                        <p>I can help with Real Estate, Medical, AI/ML, Sales, and Education topics.</p>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-area">
+                    <div class="input-controls">
+                        <button id="btnVoice" class="btn-voice" title="Hold to record">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <input type="text" id="textInput" class="text-input" placeholder="Type your message or hold the mic button to speak...">
+                        <button id="btnSend" class="btn-send" title="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="input-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="chkAutoSpeak" checked>
+                            <span>Auto-speak responses</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="chkIncludeSources" checked>
+                            <span>Include sources</span>
+                        </label>
+                        <select id="voiceSelect" class="voice-select">
+                            <option value="alloy">Alloy</option>
+                            <option value="echo">Echo</option>
+                            <option value="fable">Fable</option>
+                            <option value="onyx">Onyx</option>
+                            <option value="nova">Nova</option>
+                            <option value="shimmer">Shimmer</option>
+                        </select>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Right Panel -->
+            <aside class="right-panel">
+                <div class="tools-section">
+                    <h3>Available Tools</h3>
+                    <div class="tools-list">
+                        <div class="tool-item">
+                            <i class="fas fa-cloud-sun"></i>
+                            <span>Weather</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-calculator"></i>
+                            <span>Calculator</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Time</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-search"></i>
+                            <span>Web Search</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-summary">
+                    <h3>Performance</h3>
+                    <div class="metric-item">
+                        <span class="metric-label">Response Time:</span>
+                        <span class="metric-value" id="avgResponseTime">-</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">STT Time:</span>
+                        <span class="metric-value" id="avgSttTime">-</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">TTS Time:</span>
+                        <span class="metric-value" id="avgTtsTime">-</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Retrieval Time:</span>
+                        <span class="metric-value" id="avgRetrievalTime">-</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Settings</h2>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="settings-group">
+                        <h3>OpenAI Configuration</h3>
+                        <label>
+                            Model:
+                            <select id="modelSelect" class="form-select">
+                                <option value="gpt-4">GPT-4</option>
+                                <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                            </select>
+                        </label>
+                        <label>
+                            Temperature:
+                            <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7">
+                            <span id="tempValue">0.7</span>
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <h3>Audio Settings</h3>
+                        <label>
+                            TTS Speed:
+                            <input type="range" id="ttsSpeed" min="0.5" max="2" step="0.1" value="1">
+                            <span id="speedValue">1.0</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Modal -->
+        <div id="metricsModal" class="modal">
+            <div class="modal-content modal-large">
+                <div class="modal-header">
+                    <h2>System Metrics</h2>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="metricsContent">
+                        <!-- Metrics will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+            <div class="spinner"></div>
+            <p id="loadingText">Processing...</p>
+        </div>
+    </div>
+
+    <!-- Audio elements -->
+    <audio id="audioPlayer" style="display: none;"></audio>
+
+    <!-- Scripts -->
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/voice.js"></script>
+    <script src="/static/js/chat.js"></script>
+</body>
+</html>
