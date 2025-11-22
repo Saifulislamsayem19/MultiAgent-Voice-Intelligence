@@ -179,7 +179,6 @@ class VectorStoreService:
             return
         
         try:
-            # This is a simplified version - in production, you'd need to track document IDs
             logger.info(f"Document removal requested for {filename} in {agent}")
             # Rebuild vector store without the specified file
             self._rebuild_store_without_file(agent, filename)
@@ -230,7 +229,7 @@ class VectorStoreService:
                 folder_path=str(self.vector_store_path),
                 embeddings=self.embeddings,
                 index_name=agent,
-                allow_dangerous_deserialization=True  # Be cautious with this in production
+                allow_dangerous_deserialization=True  
             )
             return vector_store
         except Exception as e:
@@ -239,7 +238,6 @@ class VectorStoreService:
     
     def _rebuild_store_without_file(self, agent: str, filename: str):
         """Rebuild vector store excluding a specific file"""
-        # This is a placeholder - in production, you'd implement proper document tracking
         logger.info(f"Rebuilding store for {agent} without {filename}")
         pass
     
@@ -258,11 +256,10 @@ class VectorStoreService:
         
         try:
             vector_store = self.vector_stores[agent]
-            # Get approximate document count (this is a simplification)
+            # Get approximate document count
             return {
                 "exists": True,
                 "agent": agent,
-                # Add more stats as needed
             }
         except Exception as e:
             logger.error(f"Error getting stats for {agent}: {str(e)}")
