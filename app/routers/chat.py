@@ -29,7 +29,7 @@ metrics_logger = MetricsLogger()
 orchestrator = OrchestratorAgent()
 agent_factory = SpecializedAgentFactory()
 
-# Session storage (in production, use Redis or similar)
+# Session storage 
 sessions: Dict[str, Dict[str, Any]] = {}
 
 class ChatRequest(BaseModel):
