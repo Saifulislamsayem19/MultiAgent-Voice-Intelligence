@@ -163,7 +163,6 @@ class CalculatorTool:
         """
         try:
             # Safe evaluation of mathematical expressions
-            # Remove potentially dangerous functions
             safe_dict = {
                 "abs": abs, "round": round, "min": min, "max": max,
                 "sum": sum, "pow": pow, "sqrt": sqrt,
@@ -241,8 +240,6 @@ class WebSearchTool:
         Returns:
             Search results as string
         """
-        # This is a mock implementation
-        # In production, you'd integrate with a search API like Google Custom Search or Bing
         
         logger.info(f"Web search for: {query}")
         
