@@ -141,7 +141,7 @@ class BaseSpecializedAgent(ABC):
                 "response": response["output"],
                 "sources": sources if include_sources else None,
                 "agent": self.agent_name,
-                "tokens_used": 0  # Would need token counting implementation
+                "tokens_used": 0  
             }
             
         except Exception as e:
