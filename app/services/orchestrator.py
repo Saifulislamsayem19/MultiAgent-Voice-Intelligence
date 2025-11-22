@@ -21,7 +21,7 @@ class OrchestratorAgent:
         self.llm = ChatOpenAI(
             openai_api_key=settings.openai_api_key,
             model=settings.openai_model,
-            temperature=0.3  # Lower temperature for more consistent routing
+            temperature=0.3  
         )
         
         self.system_prompt = ORCHESTRATOR_CONFIG["system_prompt"]
