@@ -132,7 +132,7 @@ class BaseSpecializedAgent(ABC):
                 "chat_history": chat_history
             })
             
-            # Update memory if provided
+            # Update memory
             if memory:
                 memory.chat_memory.add_user_message(query)
                 memory.chat_memory.add_ai_message(response["output"])
