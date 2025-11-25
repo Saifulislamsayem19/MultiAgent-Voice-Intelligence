@@ -15,13 +15,13 @@ This system implements a sophisticated multi-agent architecture that intelligent
 
 ### Key Features
 
-- ** Voice-First Interface** - Natural voice interactions with real-time speech-to-text and text-to-speech capabilities
-- ** Multi-Agent Architecture** - Six specialized agents with intelligent query routing
-- ** RAG Pipeline** - Context-aware responses powered by FAISS vector search
-- ** Real-Time Processing** - Optimized for low-latency responses
-- ** Comprehensive Metrics** - Built-in performance monitoring and analytics
-- ** Dynamic Function Calling** - Extensible tool system for real-time data integration
-- ** Docker Ready** - Containerized deployment with Docker Compose support
+- **Voice-First Interface** - Natural voice interactions with real-time speech-to-text and text-to-speech capabilities
+- **Multi-Agent Architecture** - Six specialized agents with intelligent query routing
+- **RAG Pipeline** - Context-aware responses powered by FAISS vector search
+- **Real-Time Processing** - Optimized for low-latency responses
+- **Comprehensive Metrics** - Built-in performance monitoring and analytics
+- **Dynamic Function Calling** - Extensible tool system for real-time data integration
+- **Docker Ready** - Containerized deployment with Docker Compose support
 
 ## Architecture
 
