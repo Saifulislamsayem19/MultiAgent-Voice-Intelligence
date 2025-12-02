@@ -6,7 +6,8 @@ A production-ready, enterprise-grade voice-enabled AI agent system featuring int
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)](https://fastapi.tiangolo.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<img width="1501" height="936" alt="image" src="https://github.com/user-attachments/assets/4175e674-6132-43c0-be47-2d93dade5ea9" />
+<img width="1520" height="1088" alt="image" src="https://github.com/user-attachments/assets/ff9c71fc-3cd7-48a0-8f74-731442ee48d2" />
+
 
 
 ## Overview
