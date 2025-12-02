@@ -10,7 +10,7 @@ from pathlib import Path
 import faiss
 import numpy as np
 from langchain_openai import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 from langchain.schema import Document
 
 from app.config import settings
@@ -42,6 +42,14 @@ class VectorStoreService:
                 logger.info(f"Loaded vector store for {agent_name}")
             except Exception as e:
                 logger.error(f"Error loading vector store for {agent_name}: {str(e)}")
+    
+    def vector_store_exists(self, agent: str) -> bool:
+        """Check if a FAISS store already exists on disk"""
+        faiss_file = self.vector_store_path / f"{agent}.faiss"
+        pkl_file = self.vector_store_path / f"{agent}.pkl"
+
+        return faiss_file.exists() and pkl_file.exists()
+
     
     def create_vector_store(self, agent: str, documents: List[Document]) -> FAISS:
         """

@@ -162,8 +162,7 @@ class VoiceAIApp {
                 body: JSON.stringify({
                     message: messageText,
                     session_id: this.sessionId,
-                    agent_override: this.selectedAgent === 'orchestrator' ? null : this.selectedAgent,
-                    include_sources: this.includeSources
+                    agent_override: this.selectedAgent === 'orchestrator' ? null : this.selectedAgent
                 })
             });
             
@@ -176,7 +175,6 @@ class VoiceAIApp {
             // Add assistant message
             this.addMessage('assistant', data.response, {
                 agent: data.agent_used,
-                sources: data.sources,
                 metrics: data.metrics
             });
             
@@ -235,7 +233,6 @@ class VoiceAIApp {
         if (metadata.sources && metadata.sources.length > 0) {
             const sourcesDiv = document.createElement('div');
             sourcesDiv.className = 'message-sources';
-            sourcesDiv.innerHTML = '<strong>Sources:</strong>';
             
             metadata.sources.forEach(source => {
                 const sourceItem = document.createElement('div');

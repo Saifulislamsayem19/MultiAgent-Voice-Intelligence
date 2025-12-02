@@ -9,6 +9,9 @@ venv/
 .env.*
 *.env
 
+# Vector store data
+vector_stores/
+
 # Log files
 logs/
 *.log
@@ -22,5 +25,6 @@ logs/
 
 # Cache files
 *.pyo
+
 
 

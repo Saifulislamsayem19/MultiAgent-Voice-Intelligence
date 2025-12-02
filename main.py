@@ -89,10 +89,17 @@ async def startup_event():
                     agent_name = agent_folder.name
                     logger.info(f"Loading documents for {agent_name} agent...")
                     
+                    # Skip rebuilding vector stores if files already exist
+                    if vector_service.vector_store_exists(agent_name):
+                        logger.info(f"Vector store for {agent_name} already exists — skipping.")
+                        continue
+
+                    # Otherwise build a new one
                     documents = doc_loader.load_documents(str(agent_folder))
                     if documents:
                         vector_service.create_vector_store(agent_name, documents)
                         logger.info(f"Created vector store for {agent_name} with {len(documents)} documents")
+
         
         logger.info("System initialization complete")
     except Exception as e:
@@ -145,6 +152,7 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=8000,
         reload=True,
+        reload_excludes=["vector_stores/*"],
         log_config={
             "version": 1,
             "disable_existing_loggers": False,
