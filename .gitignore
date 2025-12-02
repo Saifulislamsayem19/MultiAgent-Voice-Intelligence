@@ -9,8 +9,11 @@ venv/
 .env.*
 *.env
 
-# Vector store data
+# Vector store files
 vector_stores/
+*.faiss
+*.pkl
+*.npy
 
 # Log files
 logs/
